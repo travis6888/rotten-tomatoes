@@ -5,7 +5,7 @@ from django.shortcuts import render, render_to_response, redirect
 # Create your views here.
 from django.template.loader import render_to_string
 from django.views.decorators.csrf import csrf_exempt
-from tomatoes.models import Movie
+from tomatoes.models import Movie, Favorite
 
 
 def home(request):
@@ -83,3 +83,25 @@ def delete_favorite(request):
         data = {'movies': movies}
 
         return render_to_response('favorites.html', data)
+
+
+def tinder(request):
+    return render(request, 'tinder.html')
+
+@csrf_exempt
+def new_favorite(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        new_favorite = Favorite.objects.create(
+            title=data['title'],
+            poster=data['poster'],
+            identifier=data['identifier']
+        )
+        movie_info = {
+            'title': new_favorite.title,
+            'poster': new_favorite.poster,
+            'identifier': new_favorite.identifier
+
+
+        }
+        return HttpResponse(json.dumps(movie_info), content_type='application/json')

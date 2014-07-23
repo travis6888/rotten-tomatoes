@@ -12,3 +12,11 @@ class Movie(models.Model):
 
     def __unicode__(self):
         return self.title
+
+class Favorite(models.Model):
+    title = models.CharField(max_length=100, null=True)
+    poster = models.URLField(null=True)
+    identifier = models.CharField(max_length=30)
+
+    def __unicode__(self):
+        return self.title
