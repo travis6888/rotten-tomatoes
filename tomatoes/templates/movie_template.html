@@ -1,0 +1,19 @@
+{#{% extends "tomatoes_base.html" %}#}
+{#{% load staticfiles %}#}
+{#{% block content %}#}
+
+    <div class="movieInfo">
+
+        <img src="{{ poster }}" />
+        <p>
+            Title: {{ title }}
+        </p>
+        <p>
+            Released In: {{ release_year }}
+        </p>
+        <p>
+            Critic Rating: {{ critic_rating }}
+        </p>
+    </div>
+
+{#{% endblock %}#}

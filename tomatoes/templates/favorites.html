@@ -1,0 +1,10 @@
+{% for item in favorites %}
+<div>
+<img src="{{ item.poster }}">
+
+<p>{{ item.title }}</p>
+<p>{{ item.release_year }}</p>
+
+<p><button class="removeFavorite" data-title="{{ item.title }}">Remove from Favorites</button></p>
+</div>
+{% endfor %}

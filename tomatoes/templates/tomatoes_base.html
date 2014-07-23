@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    {% load staticfiles %}
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+    <title></title>
+</head>
+<body>
+<button id="getMovie">
+    Search
+</button>
+<form>
+<input id="searchMovies" placeholder="Enter Movie">
+<input id="arrayLimit" placeholder="Search Limit" >
+</form>
+<button id="favorites">
+    Your Favorites
+</button>
+<button id="saveMovieView">
+    Save this movie
+</button>
+<div class="searchResults">
+</div>
+<div class="favorites"></div>
+<div class="movieInfoContainer">
+    <div class="moreInformation"></div>
+</div>
+{#{% block content %}#}
+{#{% endblock %}#}
+</body>
+</html>
