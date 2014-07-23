@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^new_movie_html/$', 'tomatoes.views.new_movie_html', name='new_movie_html'),
     url(r'^delete_favorite', 'tomatoes.views.delete_favorite', name='delete_favorite'),
     url(r'^tinder/$', 'tomatoes.views.tinder', name='tinder'),
-    url(r'^new_favorites', 'tomatoes.views.new_favorites', name='new_favorites'),
+    url(r'^new_favorite', 'tomatoes.views.new_favorite', name='new_favorite'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

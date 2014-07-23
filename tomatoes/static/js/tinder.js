@@ -4,7 +4,7 @@ $(document).ready(function(){
    var myApiKey = 'gawtrve9bug4phrmzdfrqgc7';
     var resultsLimit = 5;
 
-
+    var movie_list =[]
     $('.tinderBtn').on('click', function() {
         var searchQuery = $('#search').val();
         var pageLimit = 10;
@@ -31,9 +31,19 @@ $(document).ready(function(){
                 success: function(response){
                     console.log(response);
                     for (var i =0; i <response.movies.length; i++){
-                        var movieLink = response.movies[i].links.self;
-                        $('#recommended').append("<div><p>"+response.movies[i].title+"<p><div class='synopsis'><button class='learnMore' data-link="+movieLink+">Learn More</button></div><button class='favoriteBtn'>Favorite</button></div>");
+                        var movie = response.movies[i];
+                        var movieLink = movie.links.self;
+                        var movieInfo = {};
+                        movieInfo.title=movie.title;
+                        movieInfo.poster=movie.posters.original;
+                        movieInfo.identifier=movie.id;
+                        movie_list.push(movieInfo)
+
+
+                        $('#recommended').append("<div><p>"+response.movies[i].title+"<p><div class='synopsis'><button class='learnMore' data-link="+movieLink+">Learn More</button></div><button class='favoriteBtn' data-id="+i+">Favorite</button></div>");
+
                         console.log(movieLink)
+
                     }
                 },
                 error: function(response){
@@ -71,7 +81,9 @@ $(document).ready(function(){
 
     });
     $(document).on('click', '.favoriteBtn', function (){
-                movieInfo = JSON.stringify(movieInfo);
+                var favId = $(this).data('id');
+                var favMovie = movie_list[favId];
+                movieInfo = JSON.stringify(favMovie);
                 $.ajax({
                     url: '/new_favorite/',
                     type: 'POST',
