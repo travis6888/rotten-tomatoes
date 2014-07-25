@@ -21,7 +21,7 @@ $(document).ready(function() {
                 console.log(movies);
 
                 var movie_list = [];
-                for ( i = 0; i < movies.length; i++) {
+                for ( var i = 0; i < movies.length; i++) {
                     var movie = movies[i];
                     var movieInfo = {};
                     var moreInformation = $('moreInformation');
@@ -160,6 +160,7 @@ $(document).ready(function() {
 //            });
 
     $('#favorites').on('click', function () {
+
         $.ajax({
             url: '/view_favorites/',
             type: 'GET',
@@ -195,7 +196,11 @@ $(document).ready(function() {
             error: function () {
                 console.log("fucked");
             }
+        }).complete(function(){
+                   $('#accordion').accordion({active: 1});
+
         });
     });
+
 
 });

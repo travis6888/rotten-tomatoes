@@ -4,7 +4,7 @@ $(document).ready(function(){
    var myApiKey = 'gawtrve9bug4phrmzdfrqgc7';
     var resultsLimit = 5;
 
-    var movie_list =[]
+    var movie_list =[];
     $('.tinderBtn').on('click', function() {
         var searchQuery = $('#search').val();
         var pageLimit = 10;
@@ -40,7 +40,8 @@ $(document).ready(function(){
                         movie_list.push(movieInfo)
 
 
-                        $('#recommended').append("<div><p>"+response.movies[i].title+"<p><div class='synopsis'><button class='learnMore' data-link="+movieLink+">Learn More</button></div><button class='favoriteBtn' data-id="+i+">Favorite</button></div>");
+                        $('#recommended').append("<div><p>"+response.movies[i].title+"<p>" +
+                            "<div class='synopsis'><button class='learnMore' data-link="+movieLink+">Learn More</button></div><button class='favoriteBtn' data-id="+i+">Favorite</button></div>");
 
                         console.log(movieLink)
 

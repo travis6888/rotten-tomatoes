@@ -3,8 +3,15 @@
 <head lang="en">
     <meta charset="UTF-8">
     {% load staticfiles %}
+
     <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/jquery-ui-1.11.0.custom/jquery-ui.js' %}"></script>
+
     <script src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'js/jquery-ui-1.11.0.custom/jquery-ui.min.css' %}">
+   <script src="{% static 'js/jquery-ui-1.11.0.custom/external/jquery/jquery.js' %}"></script>
+   <script src="{% static 'js/jquery-ui-1.11.0.custom/jquery-ui.min.js' %}"></script>
+
     <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
     <title></title>
 </head>
@@ -23,11 +30,18 @@
     Save this movie
 </button>
 <div class="searchResults">
+
 </div>
 <div class="favorites"></div>
 <div class="movieInfoContainer">
     <div class="moreInformation"></div>
 </div>
+{#<div id="accordion">#}
+{#    <h3 class="ui-accordion-header">Header One</h3>#}
+{#    <div class="ui-accordion-content">Content One</div>#}
+{#    <h3 class="ui-accordion-header">Header Two</h3>#}
+{#    <div class="ui-accordion-content">Content Two</div>#}
+{#</div>#}
 {#{% block content %}#}
 {#{% endblock %}#}
 </body>
